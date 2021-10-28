@@ -3,7 +3,7 @@ import numpy as np
 
 class MyOwnSolution(ExactSolution):
     def __init__(self, N, y0, x0, X):
-        ExactSolution.__init__(N, y0, x0, X)
+        ExactSolution.__init__(self, N, y0, x0, X)
         self.exactSolution()
     
     # overriding abstract method
@@ -12,12 +12,13 @@ class MyOwnSolution(ExactSolution):
 
     # overriding abstract method
     def exactSolution(self):
-        h = ExactSolution.h
-        x = ExactSolution.X
-        y = ExactSolution.Y
-
-        for i in range(ExactSolution.N):
-            if i == 0: y[i] = ExactSolution.Y0
-            else: y[i] = np.power(np.e, x[i-1]) - 1/(1+x[i-1])
+        x = self.X
+        y = self.Y 
+        constant = -1/(self.Y0 - np.power(np.e, self.X0)) - self.X0
+        for i in range(self.N):
+            if i == 0: y[i] = self.Y0
+            else: y[i] = np.power(np.e, x[i-1]) - 1/(constant+x[i-1])
         
-        ExactSolution.Y = y
+        self.Y = y
+
+        
