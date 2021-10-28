@@ -104,7 +104,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>221</y>
+      <y>191</y>
       <width>280</width>
       <height>50</height>
      </rect>
@@ -122,7 +122,7 @@
     <property name="geometry">
      <rect>
       <x>715</x>
-      <y>171</y>
+      <y>141</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -153,7 +153,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>351</y>
+      <y>291</y>
       <width>280</width>
       <height>50</height>
      </rect>
@@ -171,7 +171,7 @@
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>481</y>
+      <y>391</y>
       <width>280</width>
       <height>50</height>
      </rect>
@@ -189,7 +189,7 @@
     <property name="geometry">
      <rect>
       <x>715</x>
-      <y>301</y>
+      <y>241</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -220,7 +220,7 @@
     <property name="geometry">
      <rect>
       <x>715</x>
-      <y>431</y>
+      <y>341</y>
       <width>50</width>
       <height>50</height>
      </rect>
@@ -361,24 +361,11 @@
      <string>Apply</string>
     </property>
    </widget>
-   <widget class="QWidget" name="solution_graph" native="true">
+   <widget class="MplWidget" name="MplWidget" native="true">
     <property name="geometry">
      <rect>
       <x>0</x>
       <y>20</y>
-      <width>700</width>
-      <height>391</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(232, 232, 232);</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="local_error_graph" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>410</y>
       <width>700</width>
       <height>391</height>
      </rect>
@@ -428,8 +415,78 @@
      <bool>false</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="n0_lbl">
+    <property name="geometry">
+     <rect>
+      <x>715</x>
+      <y>441</y>
+      <width>50</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>32</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="text">
+     <string>n0</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::PlainText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="n0_txtbox">
+    <property name="geometry">
+     <rect>
+      <x>710</x>
+      <y>491</y>
+      <width>280</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>25</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="MplWidget" name="MplWidget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>410</y>
+      <width>700</width>
+      <height>391</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(232, 232, 232);</string>
+    </property>
+   </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MplWidget</class>
+   <extends>QWidget</extends>
+   <header>mplwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
