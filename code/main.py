@@ -15,16 +15,13 @@ from my_own_solution import MyOwnSolution
 from mplwidget import MplWidget
 from PyQt5 import QtCore, QtGui, QtWidgets
 import matplotlib.pyplot as mpl
-from decimal import Decimal
+from decimal import Decimal as D
 
 class Ui_MainWindow(object):
-     
-          
-
     def applyButtonHandler(self):
-        y0        =int(self.y0_txtbox.toPlainText())
-        x0        =int(self.x0_txtbox.toPlainText())
-        X         =int(self.x_txtbox.toPlainText())
+        y0        =D(self.y0_txtbox.toPlainText())
+        x0        =D(self.x0_txtbox.toPlainText())
+        X         =D(self.x_txtbox.toPlainText())
         N         =int(self.n_txtbox.toPlainText())
       
         my_de     =MyOwnSolution(N,y0,x0,X)
@@ -55,9 +52,9 @@ class Ui_MainWindow(object):
         self.MplWidget_2.canvas.draw()
 
     def globalError(self):
-        y0   =int(self.y0_txtbox.toPlainText())
-        x0   =int(self.x0_txtbox.toPlainText())
-        bigX    =int(self.x_txtbox.toPlainText())
+        y0   =D(self.y0_txtbox.toPlainText())
+        x0   =D(self.x0_txtbox.toPlainText())
+        bigX =int(self.x_txtbox.toPlainText())
         N    =int(self.n_txtbox.toPlainText())
         n0   =self.n0_txtbox.toPlainText()
         my_de=MyOwnSolution(N, y0, x0, bigX)
@@ -71,12 +68,12 @@ class Ui_MainWindow(object):
             my_ie=ImprovedEulerMethod(N, y0, x0, bigX, my_de)
             my_ie.calculateGlobalError(int(n0))
             X = [i for i in range(int(n0), N)]
-            mpl.plot(X, my_eu.globalError, label='improved euler')
+            mpl.plot(X, my_ie.globalError, label='improved euler')
         if self.runge_checkBox.isChecked():
             my_rk=RungeKuttaMethod(N, y0, x0, bigX, my_de)
             my_rk.calculateGlobalError(int(n0))
             X = [i for i in range(int(n0), N)]
-            mpl.plot(X, my_eu.globalError, label='runge-kutta')
+            mpl.plot(X, my_rk.globalError, label='runge-kutta')
         mpl.legend()
         mpl.show()
 

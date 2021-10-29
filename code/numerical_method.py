@@ -19,7 +19,7 @@ class NumericMethod(ABC, Grid):
                 Y[i] = self.calculateY(X[i-1], Y[i-1])
         self.Y = Y
         self.calculateLocalError()
-
+    
     def calculateLocalError(self):
         exactY = self.exactSolution.Y
         numericalY = self.Y

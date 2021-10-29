@@ -16,9 +16,9 @@ class Grid:
         self.bigX = X
         self.Y0 = y0
         self.N = n
-        self.h = (X - x0)/(n-1)
+        self.h = (X - x0)/(n)
         self.Y[0] = y0
-
+        
         for i in range(n):
             if i == 0 :
                 self.X[i] = x0

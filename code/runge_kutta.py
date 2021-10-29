@@ -12,8 +12,8 @@ class RungeKuttaMethod(NumericMethod):
     def calculateY(self, x, y):
         h  = self.h
         k1 = self.exactSolution.Derivative(x, y)
-        k2 = self.exactSolution.Derivative(x + h / 2, y + (h / 2) * k1)
-        k3 = self.exactSolution.Derivative(x + h / 2, y + (h / 2) * k2)
+        k2 = self.exactSolution.Derivative(x + h / 2, y + (h * k1) / 2)
+        k3 = self.exactSolution.Derivative(x + h / 2, y + (h * k2) / 2)
         k4 = self.exactSolution.Derivative(x + h, y + h * k3)
         Y  = y + h*(k1+2*k2+2*k3+k4)/6
         return Y
